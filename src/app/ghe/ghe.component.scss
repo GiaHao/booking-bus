@@ -1,0 +1,15 @@
+.choiced {
+  background-color: green;
+}
+
+.trueStatus {
+  background-color: red;
+
+  &:disabled {
+    opacity: 1;
+  }
+}
+
+.btn {
+  width: 40px;
+}

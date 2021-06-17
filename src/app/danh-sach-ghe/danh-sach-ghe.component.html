@@ -1,0 +1,30 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-2">
+      <p class="alert alert-secondary text-center">Tài xế</p>
+      <ng-container *ngFor="let ghe of mangGhe; let i = index">
+        <app-ghe [ghe]="ghe" (gheButton)="addGhe($event)"></app-ghe>
+        <br *ngIf="(i + 1) % 4 === 0" />
+      </ng-container>
+    </div>
+    <div class="col-sm-4 right-content">
+      <h5>
+        Danh sách ghế đã đặt
+        <span *ngIf="mangGheBooking.length > 0"
+          >({{ mangGheBooking.length }})</span
+        >
+      </h5>
+      <p *ngFor="let ghe of mangGheBooking; let i = index">
+        Ghế: {{ ghe.TenGhe }} ${{ ghe.Gia }}
+        <button class="button" (click)="handleCancleBooking(i)">[Hủy]</button>
+      </p>
+    </div>
+    <div class="row my-3">
+      <div class="col-sm-6 offset-sm-3">
+        <button class="btn btn-success" (click)="handleBooking()">
+          Đặt vé
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
